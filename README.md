@@ -1,1 +1,1 @@
-# git-github-workshop
+# student-management-system
