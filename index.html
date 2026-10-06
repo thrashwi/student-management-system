@@ -1,159 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management System</title>
+
+    <title>StudentHub - Dashboard</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <header class="topbar">
-        <div class="logo">Student<span>Hub</span></div>
+    <!-- SIDEBAR -->
 
-        <nav>
-            <a href="index.html" class="active">Dashboard</a>
-            <a href="students.html">Students</a>
-            <a href="add-student.html">Add Student</a>
-            <a href="courses.html">Courses</a>
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">S</div>
+
+            <div>
+                <h2>Student<span>Hub</span></h2>
+                <p>Management System</p>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-title">MAIN MENU</p>
+
+            <a href="index.html" class="nav-link active">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="students.html" class="nav-link">
+                <span>♙</span>
+                Students
+            </a>
+
+            <a href="add-student.html" class="nav-link">
+                <span>＋</span>
+                Add Student
+            </a>
+
+            <a href="courses.html" class="nav-link">
+                <span>▤</span>
+                Courses
+            </a>
+
+            <p class="nav-title">MANAGEMENT</p>
+
+            <a href="dashboard.html" class="nav-link">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="students.html" class="nav-link">
+                <span>◉</span>
+                Student Records
+            </a>
+
         </nav>
 
-        <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    </header>
 
-    <main class="container">
+        <div class="sidebar-bottom">
 
-        <section class="welcome">
-            <div>
-                <p class="small-title">STUDENT MANAGEMENT SYSTEM</p>
-                <h1>Welcome to StudentHub 👋</h1>
-                <p>Manage students, courses and academic information from one place.</p>
-            </div>
+            <div class="system-status">
+                <span class="status-dot"></span>
 
-            <a href="add-student.html" class="primary-btn">
-                + Add Student
-            </a>
-        </section>
-
-        <section class="stats">
-
-            <div class="stat-card">
-                <div class="stat-icon">👨‍🎓</div>
                 <div>
-                    <p>Total Students</p>
-                    <h2 id="totalStudents">0</h2>
+                    <strong>System Online</strong>
+                    <small>Local Storage Active</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon">📚</div>
-                <div>
-                    <p>Total Courses</p>
-                    <h2>8</h2>
-                </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN AREA -->
+
+    <div class="main-wrapper">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                Student<span>Hub</span>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon">🎓</div>
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu"
+                    onclick="toggleSidebar()"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
                 <div>
-                    <p>Graduated</p>
-                    <h2>24</h2>
+                    <p class="topbar-label">ADMINISTRATION</p>
+                    <h3>Student Dashboard</h3>
                 </div>
+
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon">📈</div>
-                <div>
-                    <p>Average Attendance</p>
-                    <h2>87%</h2>
+
+            <div class="topbar-right">
+
+                <div class="date-box">
+                    <span>Today</span>
+                    <strong id="currentDate">--</strong>
                 </div>
+
+                <button
+                    class="theme-btn"
+                    onclick="toggleTheme()"
+                    title="Toggle dark mode"
+                >
+                    🌙
+                </button>
+
             </div>
 
-        </section>
+        </header>
 
-        <section class="content-grid">
 
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <h2>Recent Students</h2>
-                        <p>Recently added students</p>
+        <!-- CONTENT -->
+
+        <main class="dashboard-content">
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome-banner">
+
+                <div class="welcome-content">
+
+                    <p class="welcome-small">
+                        WELCOME BACK
+                    </p>
+
+                    <h1>
+                        Student Management Dashboard
+                    </h1>
+
+                    <p>
+                        Manage students, courses, attendance and academic
+                        information from one centralized platform.
+                    </p>
+
+                    <div class="welcome-actions">
+
+                        <a
+                            href="add-student.html"
+                            class="primary-btn"
+                        >
+                            + Add New Student
+                        </a>
+
+                        <a
+                            href="students.html"
+                            class="outline-btn"
+                        >
+                            View Students
+                        </a>
+
                     </div>
 
-                    <a href="students.html">View All →</a>
                 </div>
 
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Course</th>
-                                <th>Year</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
 
-                        <tbody id="recentStudents">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <div class="welcome-decoration">
 
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <h2>Quick Actions</h2>
-                        <p>Common management tasks</p>
+                    <div class="floating-card card-one">
+                        <strong id="bannerStudents">0</strong>
+                        <span>Students</span>
                     </div>
-                </div>
 
-                <div class="quick-actions">
-
-                    <a href="add-student.html" class="action">
-                        <span>➕</span>
-                        <div>
-                            <strong>Add Student</strong>
-                            <small>Register a new student</small>
-                        </div>
-                    </a>
-
-                    <a href="students.html" class="action">
-                        <span>👥</span>
-                        <div>
-                            <strong>View Students</strong>
-                            <small>Manage student records</small>
-                        </div>
-                    </a>
-
-                    <a href="courses.html" class="action">
-                        <span>📚</span>
-                        <div>
-                            <strong>Manage Courses</strong>
-                            <small>View available courses</small>
-                        </div>
-                    </a>
-
-                    <button class="action" onclick="clearStudents()">
-                        <span>🗑️</span>
-                        <div>
-                            <strong>Clear Data</strong>
-                            <small>Remove all student records</small>
-                        </div>
-                    </button>
+                    <div class="floating-card card-two">
+                        <strong id="bannerAttendance">0%</strong>
+                        <span>Attendance</span>
+                    </div>
 
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-    </main>
 
-    <footer>
-        <p>© 2026 StudentHub | Student Management System</p>
-    </footer>
+            <!-- STATISTICS -->
+
+            <section class="section-heading">
+
+                <div>
+                    <p class="section-label">OVERVIEW</p>
+                    <h2>System Statistics</h2>
+                </div>
+
+                <span class="live-indicator">
+                    <span></span>
+                    Live Data
+                </span>
+
+            </section>
+
+
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ♙
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Total Students</p>
+
+                        <h2 id="totalStudents">
+                            0
+                        </h2>
+
+                        <span class="stat-description">
+                            Registered students
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Active Students</p>
+
+                        <h2 id="activeStudents">
+                            0
+                        </h2>
+
+                        <span class="stat-description">
+                            Currently enrolled
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ★
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Graduated</p>
+
+                        <h2 id="graduatedStudents">
+                            0
+                        </h2>
+
+                        <span class="stat-description">
+                            Completed studies
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        %
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Average Attendance</p>
+
+                        <h2 id="averageAttendance">
+                            0%
+                        </h2>
+
+                        <span class="stat-description">
+                            Across all students
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MAIN GRID -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- RECENT STUDENTS -->
+
+                <div class="dashboard-card large-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <p class="section-label">
+                                STUDENT RECORDS
+                            </p>
+
+                            <h2>
+                                Recent Students
+                            </h2>
+
+                        </div>
+
+                        <a href="students.html">
+                            View All →
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="dashboard-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Student</th>
+                                    <th>Course</th>
+                                    <th>Year</th>
+                                    <th>Attendance</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="recentStudents">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <p
+                        id="dashboardEmpty"
+                        class="empty-message"
+                    >
+                        No students registered yet.
+                    </p>
+
+                </div>
+
+
+                <!-- COURSE DISTRIBUTION -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <p class="section-label">
+                                ACADEMICS
+                            </p>
+
+                            <h2>
+                                Course Distribution
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="courseDistribution">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECOND ROW -->
+
+            <section class="dashboard-grid second-grid">
+
+
+                <!-- ATTENDANCE -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <p class="section-label">
+                                ATTENDANCE
+                            </p>
+
+                            <h2>
+                                Attendance Overview
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="attendance-overview">
+
+                        <div
+                            class="attendance-circle"
+                            id="attendanceCircle"
+                        >
+
+                            <div>
+
+                                <strong id="attendanceValue">
+                                    0%
+                                </strong>
+
+                                <span>Average</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="attendance-details">
+
+                            <div>
+                                <span class="legend-dot good"></span>
+                                <p>Good Attendance</p>
+                                <strong id="goodAttendance">0</strong>
+                            </div>
+
+                            <div>
+                                <span class="legend-dot warning"></span>
+                                <p>Needs Attention</p>
+                                <strong id="lowAttendance">0</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <p class="section-label">
+                                QUICK ACTIONS
+                            </p>
+
+                            <h2>
+                                Manage System
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <a
+                            href="add-student.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-icon blue">
+                                +
+                            </div>
+
+                            <div>
+                                <strong>Add Student</strong>
+                                <span>Register a new student</span>
+                            </div>
+
+                            <b>→</b>
+
+                        </a>
+
+
+                        <a
+                            href="students.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-icon green">
+                                ♙
+                            </div>
+
+                            <div>
+                                <strong>Student Records</strong>
+                                <span>View and manage students</span>
+                            </div>
+
+                            <b>→</b>
+
+                        </a>
+
+
+                        <a
+                            href="courses.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-icon purple">
+                                ▤
+                            </div>
+
+                            <div>
+                                <strong>Manage Courses</strong>
+                                <span>View available courses</span>
+                            </div>
+
+                            <b>→</b>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SYSTEM INFORMATION -->
+
+            <section class="dashboard-card system-card">
+
+                <div class="system-card-content">
+
+                    <div>
+
+                        <p class="section-label">
+                            STUDENTHUB PLATFORM
+                        </p>
+
+                        <h2>
+                            Centralized Student Management
+                        </h2>
+
+                        <p>
+                            StudentHub provides a simple and organized
+                            platform for managing student information,
+                            courses, attendance and academic records.
+                        </p>
+
+                    </div>
+
+
+                    <div class="system-features">
+
+                        <div>
+                            <span>✓</span>
+                            Local Data Storage
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Student Management
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Attendance Tracking
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Responsive Interface
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                © 2026 StudentHub
+                <span>•</span>
+                Student Management System
+            </p>
+
+            <p>
+                Built for Git & GitHub Workshop
+            </p>
+
+        </footer>
+
+    </div>
+
 
     <script src="js/main.js"></script>
 
 </body>
+
 </html>
