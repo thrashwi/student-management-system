@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Students</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+        Student<span>Hub</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="students.html" class="active">Students</a>
+        <a href="add-student.html">Add Student</a>
+        <a href="courses.html">Courses</a>
+    </nav>
+
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+</header>
+
+<main class="container">
+
+    <div class="page-heading">
+
+        <div>
+            <p class="small-title">STUDENT MANAGEMENT</p>
+
+            <h1>Students</h1>
+
+            <p>
+                View and manage all registered students.
+            </p>
+        </div>
+
+        <a href="add-student.html" class="primary-btn">
+            + Add Student
+        </a>
+
+    </div>
+
+    <section class="card">
+
+        <div class="search-area">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by name, email or course..."
+                onkeyup="searchStudents()"
+            >
+
+            <select
+                id="courseFilter"
+                onchange="searchStudents()"
+            >
+                <option value="">All Courses</option>
+
+                <option value="Computer Science">
+                    Computer Science
+                </option>
+
+                <option value="Information Technology">
+                    Information Technology
+                </option>
+
+                <option value="Data Science">
+                    Data Science
+                </option>
+
+                <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                </option>
+
+                <option value="Cyber Security">
+                    Cyber Security
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Year</th>
+                        <th>Attendance</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="studentsTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p id="noStudents" class="empty-message">
+            No students found.
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>
+        © 2026 StudentHub | Student Management System
+    </p>
+
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/students.js"></script>
+
+</body>
+</html>

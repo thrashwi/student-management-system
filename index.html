@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="logo">Student<span>Hub</span></div>
+
+        <nav>
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="students.html">Students</a>
+            <a href="add-student.html">Add Student</a>
+            <a href="courses.html">Courses</a>
+        </nav>
+
+        <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <div>
+                <p class="small-title">STUDENT MANAGEMENT SYSTEM</p>
+                <h1>Welcome to StudentHub 👋</h1>
+                <p>Manage students, courses and academic information from one place.</p>
+            </div>
+
+            <a href="add-student.html" class="primary-btn">
+                + Add Student
+            </a>
+        </section>
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🎓</div>
+                <div>
+                    <p>Total Students</p>
+                    <h2 id="totalStudents">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div>
+                    <p>Total Courses</p>
+                    <h2>8</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🎓</div>
+                <div>
+                    <p>Graduated</p>
+                    <h2>24</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div>
+                    <p>Average Attendance</p>
+                    <h2>87%</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="content-grid">
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2>Recent Students</h2>
+                        <p>Recently added students</p>
+                    </div>
+
+                    <a href="students.html">View All →</a>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Year</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="recentStudents">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2>Quick Actions</h2>
+                        <p>Common management tasks</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+
+                    <a href="add-student.html" class="action">
+                        <span>➕</span>
+                        <div>
+                            <strong>Add Student</strong>
+                            <small>Register a new student</small>
+                        </div>
+                    </a>
+
+                    <a href="students.html" class="action">
+                        <span>👥</span>
+                        <div>
+                            <strong>View Students</strong>
+                            <small>Manage student records</small>
+                        </div>
+                    </a>
+
+                    <a href="courses.html" class="action">
+                        <span>📚</span>
+                        <div>
+                            <strong>Manage Courses</strong>
+                            <small>View available courses</small>
+                        </div>
+                    </a>
+
+                    <button class="action" onclick="clearStudents()">
+                        <span>🗑️</span>
+                        <div>
+                            <strong>Clear Data</strong>
+                            <small>Remove all student records</small>
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 StudentHub | Student Management System</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
